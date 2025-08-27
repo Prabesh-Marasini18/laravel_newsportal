@@ -32,7 +32,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
             "title" => "required|max:255",
             "slug" => "required|max:255",
@@ -64,7 +64,7 @@ class ArticleController extends Controller
 
 
 
-        return redirect()->route('admin.article.index');
+        return redirect()->route('admin.article.create');
     }
 
     /**
@@ -80,8 +80,9 @@ class ArticleController extends Controller
      */
     public function edit(string $id)
     {
-        $article = Article::findOrFail($id);
-        return view("admin.article.edit", compact('article'));
+    $article = Article::findOrFail($id);
+    $categories = Category::all();
+    return view("admin.article.edit", compact('article', 'categories'));
     }
 
     /**
@@ -89,34 +90,36 @@ class ArticleController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
         $request->validate([
-            "name" => "required|max:50",
-            "email" => "required|email",
-            "phone" => "required|digits_between:10,14",
-            "logo" => "nullable|image|mimes:jpeg,png,jpg,,avif|max:2048",
+            "title" => "required|max:255",
+            "slug" => "required|max:255",
+            "content" => "required",
+            "categories" => "required",
+            "image" => "nullable|image|mimes:jpeg,png,jpg,avif|max:2048",
         ]);
 
         $article = Article::findOrFail($id);
         $article->title = $request->title;
         $article->slug = $request->slug;
-        $article->image = $request->image;
         $article->content = $request->content;
-        $article->views = $request->views;
-        $article->status = $request->status;
         $article->meta_keywords = $request->meta_keywords;
         $article->meta_description = $request->meta_description;
         $file = $request->image;
         if($file){
-            if($article->image){
-                unlink($article->image);
-            }
            $file_name = time().'.'.$file->getClientOriginalExtension();
               $file->move('images', $file_name);
               $article->image = "images/$file_name";
         }
-        toast('Article updated successfully!', 'success');
         $article->save();
-         return redirect()->back();
+        $article->categories()->sync($request->categories);
+
+
+        toast('Article updated successfully!', 'success');
+
+
+
+        return redirect()->back();
 
 
 

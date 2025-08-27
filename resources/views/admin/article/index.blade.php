@@ -18,6 +18,7 @@
                             <th>Image</th>
                             <th>Views</th>
                             <th>Status</th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -26,7 +27,7 @@
                             <td>{{ $i + 1 }}</td>
                             <td>{{$article->title}}</td>
 
-                            <td><img height="80" src="{{ asset($article->logo) }}" alt="{{ $article->name }}" ></td>
+                            <td><img height="80" src="{{ asset($article->image) }}" alt="{{ $article->slug }}" ></td>
                             {{-- <td>{{$article->image}}</td> --}}
 
                             <td>{{$article->views}}</td>

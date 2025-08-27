@@ -66,7 +66,9 @@
 
                             <div class="my-3 col-6">
                                 <label for="image">Image <span class="text-danger">*</span></label>
-                                <input type="file" id="image" name="image" class="form-control"  required>
+                                <input type="file" id="image" name="image" class="form-control">
+                                {{-- <img height="80" src="{{ asset($article->image) }}" alt="{{ $article->title }}" > --}}
+
                             </div>
 
                             <div class="my-3 col-12">
