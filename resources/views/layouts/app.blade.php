@@ -54,8 +54,10 @@
   <!-- Custom style CSS -->
   <link rel="stylesheet" href="/assets/css/custom.css">
   <link rel='shortcut icon' type='image/x-icon' href='/assets/img/favicon.ico' />
+   <link rel="stylesheet" href="/assets/bundles/summernote/summernote-bs4.css">
+   <link rel="stylesheet" href="/assets/bundles/select2/dist/css/select2.min.css">
 
-   <link rel="stylesheet" href="/assets/bundles/datatables/datatables.min.css">
+    <link rel="stylesheet" href="/assets/bundles/datatables/datatables.min.css">
   <link rel="stylesheet" href="/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
 </head>
 
@@ -325,28 +327,24 @@
           </div>
         </div>
       </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-          <a href="templateshub.net">Templateshub</a></a>
-        </div>
-        <div class="footer-right">
-        </div>
-      </footer>
+
     </div>
   </div>
-  <!-- General JS Scripts -->
-  <script src="/assets/js/app.min.js"></script>
-  <!-- JS Libraies -->
-  <script src="/assets/bundles/apexcharts/apexcharts.min.js"></script>
-  <!-- Page Specific JS File -->
-  <script src="/assets/js/page/index.js"></script>
-  <!-- Template JS File -->
-  <script src="/assets/js/scripts.js"></script>
-  <!-- Custom JS File -->
-  <script src="/assets/js/custom.js"></script>
+    <!-- General JS Scripts -->
+    <script src="/assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <script src="/assets/bundles/apexcharts/apexcharts.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="/assets/js/page/index.js"></script>
+    <!-- Template JS File -->
+    <script src="/assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/bundles/summernote/summernote-bs4.js"></script>
+    <script src="/assets/bundles/select2/dist/js/select2.full.min.js"></script>
 
-   <script src="/assets/bundles/datatables/datatables.min.js"></script>
-  <script src="/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets/bundles/datatables/datatables.min.js"></script>
+    <script src="/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <script src="/assets/js/page/datatables.js"></script>
 </body>
 

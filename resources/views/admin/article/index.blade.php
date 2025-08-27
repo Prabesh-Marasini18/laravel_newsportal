@@ -3,8 +3,8 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4>Category</h4>
-                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary">Add New</a>
+                    <h4>Articles</h4>
+                    <a href="{{ route('admin.article.create') }}" class="btn btn-primary">Add new</a>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -15,21 +15,27 @@
                               #
                             </th>
                             <th>Title</th>
-                            <th>Slug</th>
-                            <th>Action</th>
+                            <th>Image</th>
+                            <th>Views</th>
+                            <th>Status</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($categories as $i => $category)
-
+                         @foreach ($articles as $i => $article)
                           <tr>
-                            <td>{{ $i +  1 }}</td>
-                            <td>{{$category->title}}</td>
-                            <td>{{$category->slug}}</td>
-                            <td>
-                              <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-warning">Edit</a>
+                            <td>{{ $i + 1 }}</td>
+                            <td>{{$article->title}}</td>
 
-                              <form action="{{ route('admin.category.destroy', $category->id) }}" method="post" style="display:inline;">
+                            <td><img height="80" src="{{ asset($article->logo) }}" alt="{{ $article->name }}" ></td>
+                            {{-- <td>{{$article->image}}</td> --}}
+
+                            <td>{{$article->views}}</td>
+
+                            <td>{{$article->status}}</td>
+
+                            <td>
+                              <a href="{{ route('admin.article.edit', $article->id) }}" class="btn btn-warning">Edit</a>
+                              <form action="{{ route('admin.article.destroy', $article->id) }}" method="post" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -37,7 +43,7 @@
                             </td>
                           </tr>
 
-                          @endforeach
+                         @endforeach
 
 
                         </tbody>
